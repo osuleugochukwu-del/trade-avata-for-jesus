@@ -1,0 +1,4 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';import {courses} from '../../data/site.js';const b=(import.meta.env.BASE_URL||'/').replace(/\/?$/,'/');
+---
+<BaseLayout title="Courses | Trade Avata"><section class="page"><div class="shell"><span class="eyebrow">LEARNING</span><h1 class="page-title">Build skill one lesson at a time.</h1><p class="lead">Practical courses with progress tracking, resume points and a member dashboard that helps you continue exactly where you stopped.</p><div class="grid grid-4" style="margin-top:30px">{courses.map(c=><article class="card"><div class="mock"></div><div class="card-body"><span class="badge">{c.level}</span><h3>{c.title}</h3><p>{c.lessons} lessons · {c.duration}</p><a class="button" href={`${b}courses/${c.slug}/`}>Open Course</a></div></article>)}</div></div></section></BaseLayout>

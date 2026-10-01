@@ -1,0 +1,4 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';const b=(import.meta.env.BASE_URL||'/').replace(/\/?$/,'/');
+---
+<BaseLayout title="Learn | Trade Avata"><section class="page"><div class="shell"><span class="eyebrow">LEARN</span><h1 class="page-title">Courses and articles in one learning library.</h1><p class="lead">Choose a structured course or continue with practical articles.</p><div class="grid grid-2" style="margin-top:28px"><article class="card"><div class="card-body"><h3>Courses</h3><p>Structured lessons with progress tracking and resume points.</p><a class="button" href={`${b}courses/`}>Browse Courses</a></div></article><article class="card"><div class="card-body"><h3>Articles</h3><p>Practical reading you can save and continue later.</p><a class="button" href={`${b}articles/`}>Browse Articles</a></div></article></div></div></section></BaseLayout>

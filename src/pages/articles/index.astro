@@ -1,0 +1,4 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';import {articles} from '../../data/site.js';const b=(import.meta.env.BASE_URL||'/').replace(/\/?$/,'/');
+---
+<BaseLayout title="Articles | Trade Avata"><section class="page"><div class="shell"><span class="eyebrow">ARTICLES</span><h1 class="page-title">Read, save and continue later.</h1><p class="lead">Short practical articles that can be resumed from your member dashboard.</p><div class="grid grid-3" style="margin-top:28px">{articles.map(a=><article class="card"><div class="card-body"><span class="badge">{a.read}</span><h3>{a.title}</h3><p>Clear, practical guidance for traders building a repeatable process.</p><a class="button" href={`${b}articles/${a.slug}/`}>Read Article</a></div></article>)}</div></div></section></BaseLayout>

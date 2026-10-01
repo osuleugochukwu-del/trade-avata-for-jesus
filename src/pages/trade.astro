@@ -1,0 +1,4 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';const b=(import.meta.env.BASE_URL||'/').replace(/\/?$/,'/');
+---
+<BaseLayout title="Trading Workspaces | Trade Avata"><section class="page"><div class="shell"><span class="eyebrow">TRADING WORKSPACES</span><h1 class="page-title">Choose the workspace you need.</h1><div class="grid grid-2" style="margin-top:28px"><article class="card"><div class="card-body"><h3>Analytics</h3><p>Performance, risk and evidence-based review.</p><a class="button" href={`${b}analytics/`}>Open Analytics</a></div></article><article class="card"><div class="card-body"><h3>Journal</h3><p>Record decisions and review patterns.</p><a class="button" href={`${b}journal/`}>Open Journal</a></div></article></div></div></section></BaseLayout>

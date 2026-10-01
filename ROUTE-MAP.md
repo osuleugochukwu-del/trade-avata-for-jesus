@@ -1,0 +1,26 @@
+# Route Map
+
+- `/` — Home
+- `/products/` — Indicator store
+- `/products/<slug>/` — Product detail
+- `/courses/` — Courses
+- `/courses/<slug>/` — Course detail
+- `/courses/<slug>/player/` — Course player
+- `/articles/` — Articles
+- `/articles/<slug>/` — Article detail
+- `/learn/` — Learning hub
+- `/store/` — Store compatibility route
+- `/market/` — Market/research area
+- `/tools/` — Analytics + Journal tools
+- `/about/` — About
+- `/contact/` — Support/contact
+- `/login/` — Login
+- `/register/` — Register
+- `/member/` — Member progress dashboard
+- `/analytics/` — Advanced analytics workspace
+- `/journal/` — Advanced journal workspace
+- `/copy-trading/` — Master-only copy trading workspace
+- `/admin/` — Admin Control Center
+- `/privacy/` — Privacy
+- `/terms/` — Terms
+- `/legal/risk-disclosure/` — Risk disclosure

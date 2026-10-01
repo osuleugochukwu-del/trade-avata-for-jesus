@@ -1,0 +1,4 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';const b=(import.meta.env.BASE_URL||'/').replace(/\/?$/,'/');
+---
+<BaseLayout title="Login | Trade Avata"><section class="page"><div class="shell"><form class="form-card" data-login><span class="eyebrow">WELCOME BACK</span><h1>Login to Trade Avata</h1><div class="field"><label>Email</label><input type="email" required></div><div class="field"><label>Password</label><input type="password" required></div><button class="button" style="width:100%">Login</button><p class="muted" style="font-size:11px">Use your Trade Avata account to continue.</p><p><a href={`${b}register/`} class="link">Create an account</a></p></form></div></section><script is:inline>document.querySelector('[data-login]')?.addEventListener('submit',e=>{e.preventDefault();localStorage.setItem('ta-demo-login','1');location.href='../member/'});</script></BaseLayout>
