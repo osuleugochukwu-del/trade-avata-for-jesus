@@ -1,4 +1,91 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';import {articles} from '../../data/site.js';export function getStaticPaths(){return articles.map(a=>({params:{slug:a.slug},props:{a}}))}const {a}=Astro.props;const b=(import.meta.env.BASE_URL||'/').replace(/\/?$/,'/');
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { articles } from '../../data/site.js';
+
+export async function getStaticPaths() {
+  return articles.map((article) => ({
+    params: { slug: article.slug },
+    props: { article }
+  }));
+}
+
+const { article } = Astro.props;
+const base = (import.meta.env.BASE_URL || '/').replace(/\/?$/, '/');
 ---
-<BaseLayout title={`${a.title} | Trade Avata`}><section class="page"><div class="shell article-body"><span class="eyebrow">{a.read} READ</span><h1 class="page-title" style="font-size:50px">{a.title}</h1><p class="lead">A practical Trade Avata learning note designed to help you think more clearly about your process.</p><h2>Start with context</h2><p>Before applying any technique, define what you are trying to observe and what evidence would change your view. The goal is not to force a conclusion but to make the decision process easier to review later.</p><h2>Use a repeatable process</h2><p>Keep the sequence consistent: identify the environment, define the setup, decide the risk, record the execution, and review the result. Consistency makes your later journal analysis more useful.</p><h2>Review what actually happened</h2><p>Separate outcome from execution quality. A profitable trade can still contain a poor decision, and a losing trade can still follow a good plan.</p><div class="actions"><button class="button" data-save>Save Article</button><a class="pill" style="color:var(--text)" href={`${b}articles/`}>Back to Articles</a></div><div class="notice" data-note style="margin-top:16px">Your reading progress is remembered for your member dashboard.</div></div></section><script is:inline>localStorage.setItem('ta-last-article',location.pathname);document.querySelector('[data-save]')?.addEventListener('click',()=>{localStorage.setItem('ta-saved-article',document.title);document.querySelector('[data-note]').textContent='Article saved. It will appear in your Member Dashboard library.'});</script></BaseLayout>
+
+<BaseLayout title={`${article.title} | Trade Avata`}>
+  <section class="page">
+    <div class="shell article-body">
+      <span class="eyebrow">{article.read} READ</span>
+
+      <h1 class="page-title" style="font-size:50px">
+        {article.title}
+      </h1>
+
+      <p class="lead">
+        A practical Trade Avata learning note designed to help you think more clearly about your process.
+      </p>
+
+      <h2>Start with context</h2>
+      <p>
+        Before applying any technique, define what you are trying to observe and what evidence would change your view.
+        The goal is not to force a conclusion but to make the decision process easier to review later.
+      </p>
+
+      <h2>Use a repeatable process</h2>
+      <p>
+        Keep the sequence consistent: identify the environment, define the setup, decide the risk, record the execution,
+        and review the result. Consistency makes your later journal analysis more useful.
+      </p>
+
+      <h2>Review what actually happened</h2>
+      <p>
+        Separate outcome from execution quality. A profitable trade can still contain a poor decision, and a losing trade
+        can still follow a good plan.
+      </p>
+
+      <div class="actions">
+        <button class="button" data-save>
+          Save Article
+        </button>
+
+        <a
+          class="pill"
+          style="color:var(--text)"
+          href={`${base}articles/`}
+        >
+          Back to Articles
+        </a>
+      </div>
+
+      <div
+        class="notice"
+        data-note
+        style="margin-top:16px"
+      >
+        Your reading progress is remembered for your member dashboard.
+      </div>
+    </div>
+  </section>
+
+  <script is:inline>
+    localStorage.setItem(
+      'ta-last-article',
+      location.pathname
+    );
+
+    document
+      .querySelector('[data-save]')
+      ?.addEventListener('click', () => {
+        localStorage.setItem(
+          'ta-saved-article',
+          document.title
+        );
+
+        document.querySelector(
+          '[data-note]'
+        ).textContent =
+          'Article saved. It will appear in your Member Dashboard library.';
+      });
+  </script>
+</BaseLayout>
